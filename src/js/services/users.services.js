@@ -1,9 +1,9 @@
-const URL = "http://localhost:3000/";
+const URL = "http://localhost:3000";
 
 export const getUserService = (callback, userId) => {
   $.ajax({
     type: "GET",
-    url: `${URL}user?userId=${userId}`,
+    url: `${URL}/user?userId=${userId}`,
     contentType: "application/json",
     success: (result) => callback(result),
     dataType: "json",
@@ -13,7 +13,7 @@ export const getUserService = (callback, userId) => {
 export const getUsersService = (callback) => {
   $.ajax({
     type: "GET",
-    url: "http://localhost:3000/users",
+    url: `${URL}/users`,
     contentType: "application/json",
     success: (result) => callback(result),
     dataType: "json",
@@ -23,7 +23,7 @@ export const getUsersService = (callback) => {
 export const createUserService = (data) => {
   $.ajax({
     type: "POST",
-    url: "http://localhost:3000/users",
+    url: `${URL}/users`,
     contentType: "application/json",
     data: JSON.stringify(data),
     success: (datos) => {
@@ -40,7 +40,7 @@ export const createUserService = (data) => {
 export const updateUserService = (data, userId) => {
   $.ajax({
     type: "PUT",
-    url: `${URL}users?userId=${userId}`,
+    url: `${URL}/users?userId=${userId}`,
     contentType: "application/json",
     data: JSON.stringify(data),
     success: (datos) => {
@@ -57,7 +57,7 @@ export const updateUserService = (data, userId) => {
 export const deleteUserService = (userId) => {
   $.ajax({
     type: "DELETE",
-    url: `${URL}users?userId=${userId}`,
+    url: `${URL}/users?userId=${userId}`,
     contentType: "application/json",
     success: (datos) => {
       console.log("deleted");
